@@ -2,7 +2,7 @@ import { Image, type ImageSource } from "expo-image";
 import { StyleSheet } from "react-native";
 
 interface Props {
-    src: ImageSource
+    src: ImageSource | string
 }
 
 export default function ImageViewer({src} : Props){
