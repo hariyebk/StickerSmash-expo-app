@@ -9,7 +9,6 @@ interface Props {
 }
 
 export default function EmojiSticker({imageSize, emoji} : Props){
-
     // Creating a shared value using the useSharedValue() hook has many advantages. It helps to mutate data and runs animations based on the current value.
     const scaleImage = useSharedValue(imageSize)
     const translateX = useSharedValue(0)
@@ -23,6 +22,8 @@ export default function EmojiSticker({imageSize, emoji} : Props){
         else{
             scaleImage.value = Math.round(scaleImage.value / 2)
         }
+    }).onEnd(() => {
+        console.log('Double tap detected');
     })
     // listening for a pan gesture
     const drag = Gesture.Pan().onChange(event => {
