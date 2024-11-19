@@ -9,6 +9,7 @@ import EmojiPicker from '@/components/EmojiPicker';
 import EmojiList from '@/components/EmojiList';
 import EmojiSticker from '@/components/EmojiSticker';
 import { type ImageSource } from 'expo-image';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const PlaceholderImage = require('@/assets/images/background-image.png')
 
@@ -55,7 +56,7 @@ export default function Home(){
   }
 
   return (
-    <View style={styles.container}>
+    <GestureHandlerRootView style={styles.container}>
       <View style={styles.imageContainer}>
           <ImageViewer src={selectedImage} />
           {pickedEmoji && <EmojiSticker imageSize={40} emoji={pickedEmoji} />}
@@ -75,7 +76,7 @@ export default function Home(){
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
           <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
